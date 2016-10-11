@@ -10,7 +10,7 @@ var verbs = [
   'keep', 'prevent', 'demonstrate', 'accumulate', 'celebrate', 'acknowledge',
   'remember', 'appreciate', 'communicate', 'love', 'discover', 'avoid', 'ignore',
   'ridicule', 'divide', 'believe', 'create', 'fear', 'question', 'undermine',
-  'sabotage', 'knowing', 'see', 'befuddle', 'bind', 'blaze', 'blind', 'conceal',
+  'sabotage', 'know', 'see', 'befuddle', 'bind', 'blaze', 'blind', 'conceal',
   'confuse', 'consume', 'detect', 'devastate', 'diminish', 'drain', 'empower',
   'enlighten', 'entangle', 'envelope', 'expand', 'hinder', 'escape', 'invigorate',
   'liberate', 'madden', 'pierce', 'rejuvenate', 'restore', 'stupefy', 'transform',
@@ -80,84 +80,72 @@ var scopes = [
   'the worst',
 ]
 
-var patterns = [
-  // 'VERB to VERB'
-  function (){ //  maybe a little vague?  but maybe its good, might require thinking
-    return pick(verbs)+" "+ pick(groups) + " to " + pick(verbs) ;
-  },
-  // 'be ADJECTIVE to VERB'
-  function (){ // nice and specific
+var patterns = {
+  'be ADJECTIVE to VERB': function (){ // nice and specific
     return "be " + pick(adjectives) + " to " + pick(verbs);
   },
-  // 'VERB GROUP'
-  function (){ // kinda good actually, maybe too simple with just 2 words
+  'VERB GROUP': function (){ // kinda good actually, maybe too simple with just 2 words
     return  pick(verbs) + " " + pick(groups);
   },
-  // 'VERB THING'
-  function (){ // pretty good
+  'VERB THING': function (){ // pretty good
     return  pick(verbs) + " " + pick(things);
+  },
+  'VERB ADJECTIVE GROUP': function (){ //
+    return  pick(verbs) + " "+pick(adjectives)+" " + pick(groups);
   },
 
   // These are more specific so maybe do them at a lower chance.  or maybe not
 
-  // 'be ADJECTIVE for GROUP'
-  function (){ // maybe now too obscure to be relevant // good stuff
-    return "be " + pick(adjectives) + " for " + pick(groups);
+  'VERB to VERB': function (){ //  maybe a little vague?  but maybe its good, might require thinking
+    return pick(verbs)+" "+ pick(groups) + " to " + pick(verbs) ;
   },
-  // 'VERB IDEAL for GROUP'
-  function (){ // works well, on the specific side
+  'be ADJECTIVE for GROUP': function (){ // maybe now too obscure to be relevant // good stuff
+    return "be " + pick(adjectives) + " to " + pick(groups);
+  },
+  'VERB IDEAL for GROUP': function (){ // works well, on the specific side
     return pick(verbs) + " " + pick(ideals)+ " for " + pick(groups);
   },
+  'IDEAL is IDEAL': function (){ // can be great, sometimes too broad
+    return pick(ideals) + " is " + pick(ideals);
+  },
+  'VERB IDEAL': function (){ // can be too broad if ideals are too broad
+    return pick(verbs) + " " + pick(ideals);
+  },
+
+  //
+  //
   // // 'VERB THING for GROUP'
   // function (){ // pretty specific
   //   return  pick(verbs) + " " + pick(things)+ " for " + pick(groups);
   // },
-  // 'IDEA is IDEA'
-  function (){ // can be great, sometimes too broad
-    return pick(ideals) + " is " + pick(ideals);
-  },
-
-
-  // // 'verb idea'
-  // function (){ // can be too broad if ideals are too broad
-  //   return pick(verbs) + " " + pick(ideals);
-  // },
-  // // 'verb scope thing'
-  // function (){ // can be awkward, can be good
-  //   return  pick(verbs) + " "+pick(scopes)+" " + pick(things);
-  // },
-  // // 'verb scope place'
-  // function (){ // too much destroying all cities
-  //   return  pick(verbs) + " "+pick(scopes)+" " + pick(places);
-  // },
-  // // 'verb adjective group'
-  // function (){ // only 2 adjectives rn so no good
-  //   return  pick(verbs) + " "+pick(adjectives)+" " + pick(groups);
-  // },
-  // 'verb specific group',
-  // 'verb your possession'
-];
+};
 
 var pick = function (list) {
-  // if (Array.isArray(list)) {
+  if (Array.isArray(list)) {
     return list[Math.floor(Math.random() * list.length)];
-  // } else {
-  //   var value;
-  //   var count = 0;
-  //   for (var item in list) {
-  //     if (Math.random() < 1 / ++count) {value = item; }
-  //   }
-  //   return list[item];
-  // }
+  } else {
+    var value;
+    var count = 0;
+    for (var item in list) {
+      if (Math.random() < 1 / ++count) {value = item; }
+    }
+    // console.log(value);
+    return list[value];
+  }
 }
 
 var principle = function () {
+  // return pick({"1":1,"2":2,"3":3,"4":4});
+  // return patterns['VERB THING']();
   return pick(patterns)();
 }
+
+console.log(patterns.length + " patterns");
 console.log(ideals.length + " ideals");
 console.log(adjectives.length + " adjectives");
 console.log(verbs.length + " verbs");
 console.log(groups.length + " groups");
+console.log(things.length + " things");
 console.log();
 for (i=0;i<100;i++) {
   console.log(principle());
