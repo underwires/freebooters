@@ -1,23 +1,18 @@
-
-var adjectives0 = [
-  'needy',
-  'greedy',
-];
-
 var verbs = [
   'withhold', 'give', 'protect', 'eliminate', 'fight', 'transcend', 'defend',
   'dominate', 'support', 'earn', 'follow', 'sow', 'please', 'exemplify', 'embody',
   'keep', 'prevent', 'demonstrate', 'accumulate', 'celebrate', 'acknowledge',
   'remember', 'appreciate', 'communicate', 'love', 'discover', 'avoid', 'ignore',
   'ridicule', 'divide', 'believe', 'create', 'fear', 'question', 'undermine',
-  'sabotage', 'know', 'see', 'befuddle', 'bind', 'blaze', 'blind', 'conceal',
+  'sabotage', 'know', 'see', 'bind', 'blaze', 'blind', 'conceal',
   'confuse', 'consume', 'detect', 'devastate', 'diminish', 'drain', 'empower',
   'enlighten', 'entangle', 'envelope', 'expand', 'hinder', 'escape', 'invigorate',
   'liberate', 'madden', 'pierce', 'rejuvenate', 'restore', 'stupefy', 'transform',
   'control', 'unsee', 'stop', 'tire', 'avenge', 'vex', 'weaken', 'locate', 'build',
   'explain', 'awaken', 'banish', 'bless', 'enhance', 'fabricate', 'forbid', 'burn',
   'harm', 'infect', 'imprison', 'revive', 'rescue', 'expand', 'bait', 'trap',
-  'ensnare', 'lure', 'deceive', 'trick'
+  'ensnare', 'lure', 'deceive', 'trick', 'isolate', 'extract', 'manipulate',
+  'transport', 'smuggle', 'gaslight', 'lead', 'teach'
 ];
 
 var ideals = [
@@ -45,8 +40,8 @@ var adjectives = [
   'self-reliant', 'reciprocal', 'merciful', 'greedy', 'indulgent', 'mature',
   'whimsical', 'playful', 'youthful', 'ambitious', 'honorable', 'dutiful', 'free',
   'logical', 'ordered', 'chaotic', 'powerful', 'victorious', 'humble', 'virtuous', 'immoral',
-  'judgemental', 'detached', 'independent', 'surrendering', 'hopeful', 'fearful', 'kind',
-  'brave', 'bold', 'caring', 'cautious', 'clean', 'commited', 'compassion',
+  'judgmental', 'detached', 'independent', 'surrendering', 'hopeful', 'fearful', 'kind',
+  'brave', 'bold', 'caring', 'cautious', 'clean', 'committed', 'compassion',
   'courageous', 'courteous', 'curious', 'defiant', 'devoted',
   'discrete', 'empathetic', 'enthusiastic', 'flexible', 'focused', 'forgiving',
   'friendly', 'frugal', 'generous',  'gentle', 'graceful', 'helpful',
@@ -61,12 +56,8 @@ var adjectives = [
 var groups = [
   'animals', 'beasts', 'friends', 'warriors', 'aristocrats', 'commoners',
   'children', 'strangers', 'enemies', 'allies', 'followers', 'people',
-  'humans', 'elves', 'dwarves', 'halflings', 'workers',
+  'humans', 'elves', 'dwarves', 'halflings', 'workers', 'women', 'men', 'pets'
 ];
-
-// var places = [
-//   'wilderness', 'waters', 'forests', 'cities', 'villages', 'mountains'
-// ];
 
 var things = [
   'mines', 'weapons', 'magical objects', 'towers', 'houses', 'babies', 'food',
@@ -112,12 +103,6 @@ var patterns = {
     return pick(verbs) + " " + pick(ideals);
   },
 
-  //
-  //
-  // // 'VERB THING for GROUP'
-  // function (){ // pretty specific
-  //   return  pick(verbs) + " " + pick(things)+ " for " + pick(groups);
-  // },
 };
 
 var pick = function (list) {
@@ -129,14 +114,11 @@ var pick = function (list) {
     for (var item in list) {
       if (Math.random() < 1 / ++count) {value = item; }
     }
-    // console.log(value);
     return list[value];
   }
 }
 
 var principle = function () {
-  // return pick({"1":1,"2":2,"3":3,"4":4});
-  // return patterns['VERB THING']();
   return pick(patterns)();
 }
 
