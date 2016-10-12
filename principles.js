@@ -1,106 +1,106 @@
-var verbs = [
-  'withhold', 'give', 'protect', 'eliminate', 'fight', 'transcend', 'defend',
-  'dominate', 'support', 'earn', 'follow', 'sow', 'please', 'exemplify', 'embody',
-  'keep', 'prevent', 'demonstrate', 'accumulate', 'celebrate', 'acknowledge',
-  'remember', 'appreciate', 'communicate', 'love', 'discover', 'avoid', 'ignore',
-  'ridicule', 'divide', 'believe', 'create', 'fear', 'question', 'undermine',
-  'sabotage', 'know', 'see', 'bind', 'blaze', 'blind', 'conceal',
-  'confuse', 'consume', 'detect', 'devastate', 'diminish', 'drain', 'empower',
-  'enlighten', 'entangle', 'envelope', 'expand', 'hinder', 'escape', 'invigorate',
-  'liberate', 'madden', 'pierce', 'rejuvenate', 'restore', 'stupefy', 'transform',
-  'control', 'unsee', 'stop', 'tire', 'avenge', 'vex', 'weaken', 'locate', 'build',
-  'explain', 'awaken', 'banish', 'bless', 'enhance', 'fabricate', 'forbid', 'burn',
-  'harm', 'infect', 'imprison', 'revive', 'rescue', 'expand', 'bait', 'trap',
-  'ensnare', 'lure', 'deceive', 'trick', 'isolate', 'extract', 'manipulate',
-  'transport', 'smuggle', 'gaslight', 'lead', 'teach'
+var verbsPrinciples = [
+  'Withhold', 'Give', 'Protect', 'Eliminate', 'Fight', 'Transcend', 'Defend',
+  'Dominate', 'Support', 'Earn', 'Follow', 'Sow', 'Please', 'Exemplify', 'Embody',
+  'Keep', 'Prevent', 'Demonstrate', 'Accumulate', 'Celebrate', 'Acknowledge',
+  'Remember', 'Appreciate', 'Communicate', 'Love', 'Discover', 'Avoid', 'Ignore',
+  'Ridicule', 'Divide', 'Believe', 'Create', 'Fear', 'Question', 'Undermine',
+  'Sabotage', 'Know', 'See', 'Bind', 'Blaze', 'Blind', 'Conceal',
+  'Confuse', 'Consume', 'Detect', 'Devastate', 'Diminish', 'Drain', 'Empower',
+  'Enlighten', 'Entangle', 'Envelope', 'Expand', 'Hinder', 'Escape', 'Invigorate',
+  'Liberate', 'Madden', 'Pierce', 'Rejuvenate', 'Restore', 'Stupefy', 'Transform',
+  'Control', 'Unsee', 'Stop', 'Tire', 'Avenge', 'Vex', 'Weaken', 'Locate', 'Build',
+  'Explain', 'Awaken', 'Banish', 'Bless', 'Enhance', 'Fabricate', 'Forbid', 'Burn',
+  'Harm', 'Infect', 'Imprison', 'Revive', 'Rescue', 'Expand', 'Bait', 'Trap',
+  'Ensnare', 'Lure', 'Deceive', 'Trick', 'Isolate', 'Extract', 'Manipulate',
+  'Transport', 'Smuggle', 'Gaslight', 'Lead', 'Teach'
 ];
 
-var ideals = [
-  'beauty', 'honesty', 'integrity', 'gratitude', 'fairness', 'justice', 'respect',
-  'accountability', 'self-respect', 'risk-taking', 'impulsiveness',
-  'self-reliance', 'reciprocity', 'mercy', 'greed', 'indulgence', 'maturity',
-  'whimsy', 'playfulness', 'youth', 'ambition', 'your word', 'duty', 'freedom',
-  'logic', 'order', 'chaos', 'power', 'victory', 'humility', 'virtue', 'vice',
-  'judgement', 'detachment', 'independence', 'surrender', 'hope', 'fear', 'kindness',
-  'bravery', 'boldness', 'caring', 'caution', 'cleanliness', 'commitment',
-  'compassion', 'courage', 'courtesy', 'curiosity', 'defiance', 'devotion',
-  'discretion', 'empathy', 'enthusiasm', 'flexibility', 'focus', 'forgiveness',
-  'friendliness', 'frugality', 'generosity',  'gentleness', 'grace', 'helpfulness',
-  'honor', 'humbleness', 'humor', 'industry', 'innocence', 'joyfulness', 'knowledge',
-  'love', 'loyalty', 'magnanimity', 'majesty', 'meekness',  'obedience', 'openness',
-  'orderliness', 'patience', 'peace', 'purity',  'reliability', 'responsibility',
-  'self-sacrifice', 'service', 'simplicity', 'sincerity', 'spontaneity',
-  'steadfastness', 'strength', 'tact', 'thankfulness', 'thrift', 'tolerance',
-  'toughness', 'tranquility', 'trust', 'unity', 'wonder', 'zeal'
+var idealsPrinciples = [
+  'Beauty', 'Honesty', 'Integrity', 'Gratitude', 'Fairness', 'Justice', 'Respect',
+  'Accountability', 'Self-respect', 'Risk-taking', 'Impulsiveness',
+  'Self-reliance', 'Reciprocity', 'Mercy', 'Greed', 'Indulgence', 'Maturity',
+  'Whimsy', 'Playfulness', 'Youth', 'Ambition', 'Your word', 'Duty', 'Freedom',
+  'Logic', 'Order', 'Chaos', 'Power', 'Victory', 'Humility', 'Virtue', 'Vice',
+  'Judgement', 'Detachment', 'Independence', 'Surrender', 'Hope', 'Fear', 'Kindness',
+  'Bravery', 'Boldness', 'Caring', 'Caution', 'Cleanliness', 'Commitment',
+  'Compassion', 'Courage', 'Courtesy', 'Curiosity', 'Defiance', 'Devotion',
+  'Discretion', 'Empathy', 'Enthusiasm', 'Flexibility', 'Focus', 'Forgiveness',
+  'Friendliness', 'Frugality', 'Generosity',  'gentleness', 'Grace', 'Helpfulness',
+  'Honor', 'Humbleness', 'Humor', 'Industry', 'Innocence', 'Joyfulness', 'Knowledge',
+  'Love', 'Loyalty', 'Magnanimity', 'Majesty', 'Meekness',  'obedience', 'Openness',
+  'Orderliness', 'Patience', 'Peace', 'Purity',  'reliability', 'Responsibility',
+  'Self-sacrifice', 'Service', 'Simplicity', 'Sincerity', 'Spontaneity',
+  'Steadfastness', 'Strength', 'Tact', 'Thankfulness', 'Thrift', 'Tolerance',
+  'Toughness', 'Tranquility', 'Trust', 'Unity', 'Wonder', 'Zeal'
 ];
 
-var adjectives = [
-  'beautiful', 'honest', 'integrous', 'grateful', 'fair', 'just', 'respectful',
-  'accountable', 'self-respecting', 'risk-taking', 'impulsive',
-  'self-reliant', 'reciprocal', 'merciful', 'greedy', 'indulgent', 'mature',
-  'whimsical', 'playful', 'youthful', 'ambitious', 'honorable', 'dutiful', 'free',
-  'logical', 'ordered', 'chaotic', 'powerful', 'victorious', 'humble', 'virtuous', 'immoral',
-  'judgmental', 'detached', 'independent', 'surrendering', 'hopeful', 'fearful', 'kind',
-  'brave', 'bold', 'caring', 'cautious', 'clean', 'committed', 'compassion',
-  'courageous', 'courteous', 'curious', 'defiant', 'devoted',
-  'discrete', 'empathetic', 'enthusiastic', 'flexible', 'focused', 'forgiving',
-  'friendly', 'frugal', 'generous',  'gentle', 'graceful', 'helpful',
-  'honoring', 'humble', 'humorous', 'industrious', 'innocent', 'joyous', 'knowledgable',
-  'loving', 'loyal', 'magnanimous', 'majestic', 'meek',  'obedient', 'open',
-  'orderly', 'patient', 'peaceful', 'pure',  'reliable', 'responsible',
-  'self-sacrificing', 'servile', 'simple', 'sincere', 'spontaneous',
-  'steadfast', 'strong', 'tactful', 'thankful', 'thrifty', 'tolerant',
-  'tough', 'tranquil', 'trusting', 'united', 'wonderous', 'zealous'
+var adjectivesPrinciples = [
+  'Beautiful', 'Honest', 'Integrous', 'Grateful', 'Fair', 'Just', 'Respectful',
+  'Accountable', 'Self-respecting', 'Risk-taking', 'Impulsive',
+  'Self-reliant', 'Reciprocal', 'Merciful', 'Greedy', 'Indulgent', 'Mature',
+  'Whimsical', 'Playful', 'Youthful', 'Ambitious', 'Honorable', 'Dutiful', 'Free',
+  'Logical', 'Ordered', 'Chaotic', 'Powerful', 'Victorious', 'Humble', 'Virtuous', 'Immoral',
+  'Judgmental', 'Detached', 'Independent', 'Surrendering', 'Hopeful', 'Fearful', 'Kind',
+  'Brave', 'Bold', 'Caring', 'Cautious', 'Clean', 'Committed', 'Compassion',
+  'Courageous', 'Courteous', 'Curious', 'Defiant', 'Devoted',
+  'Discrete', 'Empathetic', 'Enthusiastic', 'Flexible', 'Focused', 'Forgiving',
+  'Friendly', 'Frugal', 'Generous',  'gentle', 'Graceful', 'Helpful',
+  'Honoring', 'Humble', 'Humorous', 'Industrious', 'Innocent', 'Joyous', 'Knowledgable',
+  'Loving', 'Loyal', 'Magnanimous', 'Majestic', 'Meek',  'obedient', 'Open',
+  'Orderly', 'Patient', 'Peaceful', 'Pure',  'reliable', 'Responsible',
+  'Self-sacrificing', 'Servile', 'Simple', 'Sincere', 'Spontaneous',
+  'Steadfast', 'Strong', 'Tactful', 'Thankful', 'Thrifty', 'Tolerant',
+  'Tough', 'Tranquil', 'Trusting', 'United', 'Wonderous', 'Zealous'
 ];
 
-var groups = [
-  'animals', 'beasts', 'friends', 'warriors', 'aristocrats', 'commoners',
-  'children', 'strangers', 'enemies', 'allies', 'followers', 'people',
-  'humans', 'elves', 'dwarves', 'halflings', 'workers', 'women', 'men', 'pets'
+var groupsPrinciples = [
+  'Animals', 'Beasts', 'Friends', 'Warriors', 'Aristocrats', 'Commoners',
+  'Children', 'Strangers', 'Enemies', 'Allies', 'Followers', 'People',
+  'Humans', 'Elves', 'Dwarves', 'Halflings', 'Workers', 'Women', 'Men', 'Pets'
 ];
 
-var things = [
-  'mines', 'weapons', 'magical objects', 'towers', 'houses', 'babies', 'food',
-  'drink', 'wealth', 'boats', 'trees', 'jewelery', 'castles'
+var thingsPrinciples = [
+  'Mines', 'Weapons', 'Magical objects', 'Towers', 'Houses', 'Babies', 'Food',
+  'Drink', 'Wealth', 'Boats', 'Trees', 'Jewelery', 'Castles'
 ];
 
 var scopes = [
-  'all','all','all',
-  'your own',
-  'the best',
-  'the worst',
+  'All','all','all',
+  'Your own',
+  'The best',
+  'The worst',
 ]
 
-var patterns = {
+var patternsPrinciples = {
   'be ADJECTIVE to VERB': function (){ // nice and specific
-    return "be " + pick(adjectives) + " to " + pick(verbs);
+    return "Be " + pick(adjectivesPrinciples) + " to " + pick(verbsPrinciples);
   },
   'VERB GROUP': function (){ // kinda good actually, maybe too simple with just 2 words
-    return  pick(verbs) + " " + pick(groups);
+    return  pick(verbsPrinciples) + " " + pick(groupsPrinciples);
   },
   'VERB THING': function (){ // pretty good
-    return  pick(verbs) + " " + pick(things);
+    return  pick(verbsPrinciples) + " " + pick(thingsPrinciples);
   },
   'VERB ADJECTIVE GROUP': function (){ //
-    return  pick(verbs) + " "+pick(adjectives)+" " + pick(groups);
+    return  pick(verbsPrinciples) + " "+pick(adjectivesPrinciples)+" " + pick(groupsPrinciples);
   },
 
   // These are more specific so maybe do them at a lower chance.  or maybe not
 
   'VERB to VERB': function (){ //  maybe a little vague?  but maybe its good, might require thinking
-    return pick(verbs)+" "+ pick(groups) + " to " + pick(verbs) ;
+    return pick(verbsPrinciples)+" "+ pick(groupsPrinciples) + " to " + pick(verbsPrinciples) ;
   },
   'be ADJECTIVE for GROUP': function (){ // maybe now too obscure to be relevant // good stuff
-    return "be " + pick(adjectives) + " to " + pick(groups);
+    return "Be " + pick(adjectivesPrinciples) + " to " + pick(groupsPrinciples);
   },
   'VERB IDEAL for GROUP': function (){ // works well, on the specific side
-    return pick(verbs) + " " + pick(ideals)+ " for " + pick(groups);
+    return pick(verbsPrinciples) + " " + pick(idealsPrinciples)+ " for " + pick(groupsPrinciples);
   },
   'IDEAL is IDEAL': function (){ // can be great, sometimes too broad
-    return pick(ideals) + " is " + pick(ideals);
+    return pick(idealsPrinciples) + " is " + pick(idealsPrinciples);
   },
   'VERB IDEAL': function (){ // can be too broad if ideals are too broad
-    return pick(verbs) + " " + pick(ideals);
+    return pick(verbsPrinciples) + " " + pick(idealsPrinciples);
   },
 
 };
@@ -119,15 +119,15 @@ var pick = function (list) {
 }
 
 var principle = function () {
-  return pick(patterns)();
+  return pick(patternsPrinciples)();
 }
 
-console.log(patterns.length + " patterns");
-console.log(ideals.length + " ideals");
-console.log(adjectives.length + " adjectives");
-console.log(verbs.length + " verbs");
-console.log(groups.length + " groups");
-console.log(things.length + " things");
+console.log(patternsPrinciples.length + " patterns");
+console.log(idealsPrinciples.length + " ideals");
+console.log(adjectivesPrinciples.length + " adjectives");
+console.log(verbsPrinciples.length + " verbs");
+console.log(groupsPrinciples.length + " groups");
+console.log(thingsPrinciples.length + " things");
 console.log();
 for (i=0;i<100;i++) {
   console.log(principle());

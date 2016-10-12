@@ -1,11 +1,19 @@
 var Spells, adjectives, elements, forms, prefixes, spells, suffixes;
 
-var pick = function(list) {
-  return list[Math.floor(Math.random() * list.length)];
-};
+var pick = function (list) {
+  if (Array.isArray(list)) {
+    return list[Math.floor(Math.random() * list.length)];
+  } else {
+    var value;
+    var count = 0;
+    for (var item in list) {
+      if (Math.random() < 1 / ++count) {value = item; }
+    }
+    return list[value];
+  }
+}
 
-
-var forms = ['Arch','Mushroom','Aura','Bane','Blast','Blob','Blossom','Call','Cup','Thicket',
+var formsDruid = ['Arch','Mushroom','Aura','Bane','Blast','Blob','Blossom','Call','Cup','Thicket',
   'Undergrowth','Door','Reed','Eyes','Face','Fang','Feast','Coat','Fissure','Cloak','Valley',
   'Gaze','Predator','Globe','Serpent','Guard','Guide','Guise','Halo','Hand','Heart',
   'Helm','Horn','Lock','Mantle','Mark','Memory','Mind','Mouth','Noose','Oath','Oracle',
@@ -17,7 +25,7 @@ var forms = ['Arch','Mushroom','Aura','Bane','Blast','Blob','Blossom','Call','Cu
   'Tentacle','Maw','Brow','Chasm','Sinkhole','Antennae','Sac','Beak'
 ];
 
-var elements = ['Amber','Aether','Air','Ash','Symbiosis','Balance','Blight',
+var elementsDruid = ['Amber','Aether','Air','Ash','Symbiosis','Balance','Blight',
   'Blood','Bone','Bones','Clay','Cloud','Copper','Cosmos','Dark','Depth',
   'Dune','Dust','Earth','Ember','Energy','Garden','Cycle','Fire','Fog','Aura',
   'Forest','Glow','Gold','Health','Heat','Alpine','Dawn','Ice','Iron',
@@ -30,7 +38,7 @@ var elements = ['Amber','Aether','Air','Ash','Symbiosis','Balance','Blight',
   'Wind','Wisdom','Wood','Snow','Bark','Fur','Magma','Obsidian','Diamond',
   'Sand','Moss','Canopy','Murk','Mire'];
 
-var adjectives = ['Spreading','Green','Lush','Binding','Black',
+var adjectivesDruid = ['Spreading','Green','Lush','Binding','Black',
 'Blazing','Blinding','Ensnaring','Bright','Cacophonous','Cerulean','Concealing',
 'Confusing','Consuming','Crimson','Decaying','Dark','Detecting','Delicate',
 'Feral','Devastating','Devilish','Diminishing','Draining','Moist',
@@ -48,44 +56,44 @@ var adjectives = ['Spreading','Green','Lush','Binding','Black',
 'Vengeful','Violent','Violet','Viridian','Voracious','Weakening',
 'White','Wondrous','Yellow','Undulating','Roaring','Tumbling','Pleasant'];
 
-var patterns = {
+var patternsDruid = {
   '1': function() {
-    return pick(elements) + ' ' + pick(forms);
+    return pick(elementsDruid) + ' ' + pick(formsDruid);
   },
   '2': function() {
-    return pick(adjectives) + ' ' + pick(forms);
+    return pick(adjectivesDruid) + ' ' + pick(formsDruid);
   },
   '3': function() {
-    return pick(adjectives) + ' ' + pick(elements);
+    return pick(adjectivesDruid) + ' ' + pick(elementsDruid);
   },
   '4': function() {
-    return pick(forms) + ' of ' + pick(elements);
+    return pick(formsDruid) + ' of ' + pick(elementsDruid);
   },
   '5': function() {
-    return pick(forms) + ' of the ' + pick(adjectives) + ' ' + pick(forms);
+    return pick(formsDruid) + ' of the ' + pick(adjectivesDruid) + ' ' + pick(formsDruid);
   },
   '6': function() {
-    return pick(elements) + ' ' + pick(elements) + ' ' + pick(adjectives);
+    return pick(elementsDruid) + ' ' + pick(elementsDruid) + ' ' + pick(adjectivesDruid);
   },
   '7': function() {
-    return pick(forms) + ' of ' + pick(adjectives) + ' ' + pick(adjectives);
+    return pick(formsDruid) + ' of ' + pick(adjectivesDruid) + ' ' + pick(adjectivesDruid);
   }
 };
 
-var spell = function () {
+var spellDruid = function () {
   var patternName;
   var count = 0;
-  for (var p in patterns) {
+  for (var p in patternsDruid) {
     if (Math.random() < 1 / ++count) {patternName = p; }
   }
-  return patterns[patternName]();
+  return patternsDruid[patternName]();
 }
 
-console.log(forms.length + ' forms');
-console.log(elements.length + ' elements');
-console.log(adjectives.length + ' adjectives');
+console.log(formsDruid.length + ' forms');
+console.log(elementsDruid.length + ' elements');
+console.log(adjectivesDruid.length + ' adjectives');
 console.log();
 
 for (i=0;i<100;i++) {
-  console.log(spell());
+  console.log(spellDruid());
 }
