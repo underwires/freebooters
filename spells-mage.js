@@ -5,59 +5,65 @@ var Spells = (function() {
     this.elements = elements1;
     this.wizardNamesPrefixes = wizardNamesPrefixes;
     this.wizardNameSuffixes = wizardNameSuffixes;
-    this.patterns = ["Element Form", "Adjective Form", "Adjective Element", "Form of Element", "Form of the Adjective Form", "Form Element Adjective", "Form of Adjective Element", "Wizard Name's Adjective Form", "Wizard Name's Adjective Element", "Wizard Name's Form of Element", "Wizard Name's Element Form"];
+    this.patterns = {};
+    var that = this;
+    this.patterns["Element Form"] = function() {
+      return that.r(that.elements) + " " + that.r(that.forms);
+    };
+
+    this.patterns["Adjective Form"] = function() {
+      return that.r(that.adjectives) + " " + that.r(that.forms);
+    };
+
+    this.patterns["Adjective Element"] = function() {
+      return that.r(that.adjectives) + " " + that.r(that.elements);
+    };
+
+    this.patterns["Form of Element"] = function() {
+      return that.r(that.forms) + " of " + that.r(that.elements);
+    };
+
+    this.patterns["Form of the Adjective Form"] = function() {
+      return that.r(that.forms) + " of the " + that.r(that.adjectives) + " " + that.r(that.forms);
+    };
+
+    this.patterns["Form of Adjective Element"] = function() {
+      return that.r(that.forms) + " of " + that.r(that.adjectives) + " " + that.r(that.elements);
+    };
+
+    this.patterns["Wizard Name's Adjective Form"] = function() {
+      return that.r(that.wizardNamesPrefixes) + that.r(that.wizardNameSuffixes) + "'s " + that.r(that.adjectives) + " " + that.r(that.forms);
+    };
+
+    this.patterns["Wizard Name's Adjective Element"] = function() {
+      return that.r(that.wizardNamesPrefixes) + that.r(that.wizardNameSuffixes) + "'s " + that.r(that.adjectives) + " " + that.r(that.elements);
+    };
+
+    this.patterns["Wizard Name's Form of Element"] = function() {
+      return that.r(that.wizardNamesPrefixes) + that.r(that.wizardNameSuffixes) + "'s " + that.r(that.forms) + " of " + that.r(that.elements);
+    };
+
+    this.patterns["Wizard Name's Element Form"] = function() {
+      return that.r(that.wizardNamesPrefixes) + that.r(that.wizardNameSuffixes) + "'s " + that.r(that.elements) + " " + that.r(that.forms);
+    };
+
   }
 
   Spells.prototype.r = function(list) {
-    return list[Math.floor(Math.random() * list.length)];
+    if (Array.isArray(list)) {
+      return list[Math.floor(Math.random() * list.length)];
+    } else {
+      var value;
+      var count = 0;
+      for (var item in list) {
+        if (Math.random() < 1 / ++count) {value = item; }
+      }
+      return list[value];
+    }
   };
 
-  Spells.prototype["new"] = function() {
-    return this[this.r(this.patterns)]();
-  };
-
-  Spells.prototype["patterns"]["Element Form"] = function() {
-    return this.r(this.elements) + " " + this.r(this.forms);
-  };
-
-  Spells.prototype["patterns"]["Adjective Form"] = function() {
-    return this.r(this.adjectives) + " " + this.r(this.forms);
-  };
-
-  Spells.prototype["patterns"]["Adjective Element"] = function() {
-    return this.r(this.adjectives) + " " + this.r(this.elements);
-  };
-
-  Spells.prototype["patterns"]["Form of Element"] = function() {
-    return this.r(this.forms) + " of " + this.r(this.elements);
-  };
-
-  Spells.prototype["patterns"]["Form of the Adjective Form"] = function() {
-    return this.r(this.forms) + " of the " + this.r(this.adjectives) + " " + this.r(this.forms);
-  };
-
-  Spells.prototype["patterns"]["Form Element Adjective"] = function() {
-    return this.r(this.elements) + " " + this.r(this.elements) + " " + this.r(this.adjectives);
-  };
-
-  Spells.prototype["patterns"]["Form of Adjective Element"] = function() {
-    return this.r(this.forms) + " of " + this.r(this.adjectives) + " " + this.r(this.adjectives);
-  };
-
-  Spells.prototype["patterns"]["Wizard Name's Adjective Form"] = function() {
-    return this.r(this.wizardNamesPrefixes) + this.r(this.wizardNameSuffixes) + "'s " + this.r(this.adjectives) + " " + this.r(this.forms);
-  };
-
-  Spells.prototype["patterns"]["Wizard Name's Adjective Element"] = function() {
-    return this.r(this.wizardNamesPrefixes) + this.r(this.wizardNameSuffixes) + "'s " + this.r(this.elements) + " " + this.r(this.adjectives);
-  };
-
-  Spells.prototype["patterns"]["Wizard Name's Form of Element"] = function() {
-    return this.r(this.wizardNamesPrefixes) + this.r(this.wizardNameSuffixes) + "'s " + this.r(this.elements) + " " + this.r(this.elements);
-  };
-
-  Spells.prototype["patterns"]["Wizard Name's Element Form"] = function() {
-    return this.r(this.wizardNamesPrefixes) + this.r(this.wizardNameSuffixes) + "'s " + this.r(this.elements) + " " + this.r(this.elements);
+  Spells.prototype.new = function() {
+    return this.r(this.patterns)();
   };
 
   return Spells;

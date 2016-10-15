@@ -87,7 +87,7 @@ var patternsPrinciples = {
 
   // These are more specific so maybe do them at a lower chance.  or maybe not
 
-  'VERB to VERB': function (){ //  maybe a little vague?  but maybe its good, might require thinking
+  'VERB GROUPS to VERBS': function (){ //  maybe a little vague?  but maybe its good, might require thinking
     return pick(verbsPrinciples)+" "+ pick(groupsPrinciples) + " to " + pick(verbsPrinciples) ;
   },
   'be ADJECTIVE for GROUP': function (){ // maybe now too obscure to be relevant // good stuff
@@ -131,23 +131,53 @@ console.log(thingsPrinciples.length + " things");
 console.log();
 
 var dump = function (list) {
-  console.log('- - - ');
+  var output = "";
   list.sort();
-  for (i=0;i<50;i++) {
-    console.log(list[i]);
+  for (i=0;i<list.length;i++) {
+    output += list[i] + "<br>\n";
   }
-  console.log();
-  for (i=50;i<100;i++) {
-    console.log(list[i]);
-  }
+  return output;
 }
-dump(verbsPrinciples);
-dump(idealsPrinciples);
-dump(adjectivesPrinciples);
-dump(groupsPrinciples);
-dump(thingsPrinciples);
+// dump(verbsPrinciples);
+// dump(idealsPrinciples);
+// dump(adjectivesPrinciples);
+// dump(groupsPrinciples);
+// dump(thingsPrinciples);
 
 //
-// for (i=0;i<100;i++) {
-//   console.log(principle());
+// console.log("\n\nbe ADJECTIVE to VERB\n-----------");
+// for (i=0;i<20;i++) {
+//   console.log(patternsPrinciples['be ADJECTIVE to VERB']());
+// }
+// console.log("\n\nVERB GROUP\n-----------");
+// for (i=0;i<20;i++) {
+//   console.log(patternsPrinciples['VERB GROUP']());
+// }
+// console.log("\n\nVERB THING\n-----------");
+// for (i=0;i<20;i++) {
+//   console.log(patternsPrinciples['VERB THING']());
+// }
+// console.log("\n\nVERB ADJECTIVE GROUP\n-----------");
+// for (i=0;i<20;i++) {
+//   console.log(patternsPrinciples['VERB ADJECTIVE GROUP']());
+// }
+// console.log("\n\nVERB GROUPS to VERBS\n-----------");
+// for (i=0;i<20;i++) {
+//   console.log(patternsPrinciples['VERB GROUPS to VERBS']());
+// }
+// console.log("\n\nbe ADJECTIVE for GROUP\n-----------");
+// for (i=0;i<20;i++) {
+//   console.log(patternsPrinciples['be ADJECTIVE for GROUP']());
+// }
+// console.log("\n\nVERB IDEAL for GROUP\n-----------");
+// for (i=0;i<20;i++) {
+//   console.log(patternsPrinciples['VERB IDEAL for GROUP']());
+// }
+// console.log("\n\nIDEAL is IDEAL\n-----------");
+// for (i=0;i<20;i++) {
+//   console.log(patternsPrinciples['IDEAL is IDEAL']());
+// }
+// console.log("\n\nVERB IDEAL\n-----------");
+// for (i=0;i<20;i++) {
+//   console.log(patternsPrinciples['VERB IDEAL']());
 // }

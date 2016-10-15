@@ -22,7 +22,7 @@ var formsDruid = ['Arch','Mushroom','Aura','Dune','Bloom','Burr','Blossom','Call
   'Stag','Staff','Storm','Cave','Pool','Globe','Tongue','Tooth','Trap','Veil',
   'Voice','Precipice','Soil','Wave','Trail','Weave','Whisper','Wings','Word','Feather',
   'Skin','Tremor','Change','Seed','Altar','Sheath','Shield','Knife','Stinger','Jaws',
-  'Tentacle','Maw','Mind','Chasm','Sinkhole','Symbiosis','Memory','Servant' // Dune
+  'Tentacle','Maw','Mind','Chasm','Sinkhole','Mound','Memory','Servant'
 ];
 
 var elementsDruid = ['Acid','Aether','Air','Ash','Monsoon','Balance','Blight',
@@ -38,7 +38,7 @@ var elementsDruid = ['Acid','Aether','Air','Ash','Monsoon','Balance','Blight',
   'Wind','Wisdom','Wood','Snow','Bark','Fur','Magma','Obsidian','Diamond',
   'Sand','Moss','Canopy','Murk','Mire'];
 
-var adjectivesDruid = ['Spreading','Green','Lush','Binding','Black',
+var adjectivesDruid = ['Spreading','Green','Spiny','Binding','Black',
   'Blazing','Blinding','Ensnaring','Bright','Cacophonous','Cerulean','Concealing',
   'Confusing','Consuming','Crimson','Decaying','Dark','Detecting','Delicate',
   'Feral','Devastating','Devilish','Diminishing','Draining','Moist',
@@ -73,13 +73,7 @@ var patternsDruid = {
     return pick(formsDruid) + ' of the ' + pick(adjectivesDruid) + ' ' + pick(formsDruid);
   },
   '6': function() {
-    return pick(elementsDruid) + ' ' + pick(elementsDruid) + ' ' + pick(adjectivesDruid);
-  },
-  '7': function() {
-    return pick(formsDruid) + ' of ' + pick(adjectivesDruid);
-  },
-  '8': function() {
-    return pick(adjectivesDruid) +' '+ pick(formsDruid) + ' of ' + pick(adjectivesDruid);
+    return pick(formsDruid) + ' of ' + pick(adjectivesDruid) +' '+ pick(elementsDruid);
   }
 };
 
@@ -98,7 +92,7 @@ console.log(adjectivesDruid.length + ' adjectives');
 console.log();
 
 for (i=0;i<100;i++) {
-  console.log(spellDruid());
+  // console.log(spellDruid());
 }
 var dump = function (list) {
   console.log('- - - ');
@@ -112,6 +106,6 @@ var dump = function (list) {
   }
 }
 //
-// dump(formsDruid);
-// dump(adjectivesDruid);
-// dump(elementsDruid);
+dump(formsDruid);
+dump(adjectivesDruid);
+dump(elementsDruid);
