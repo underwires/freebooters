@@ -129,6 +129,25 @@ console.log(verbsPrinciples.length + " verbs");
 console.log(groupsPrinciples.length + " groups");
 console.log(thingsPrinciples.length + " things");
 console.log();
-for (i=0;i<100;i++) {
-  console.log(principle());
+
+var dump = function (list) {
+  console.log('- - - ');
+  list.sort();
+  for (i=0;i<50;i++) {
+    console.log(list[i]);
+  }
+  console.log();
+  for (i=50;i<100;i++) {
+    console.log(list[i]);
+  }
 }
+dump(verbsPrinciples);
+dump(idealsPrinciples);
+dump(adjectivesPrinciples);
+dump(groupsPrinciples);
+dump(thingsPrinciples);
+
+//
+// for (i=0;i<100;i++) {
+//   console.log(principle());
+// }

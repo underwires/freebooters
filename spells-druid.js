@@ -13,48 +13,48 @@ var pick = function (list) {
   }
 }
 
-var formsDruid = ['Arch','Mushroom','Aura','Bane','Blast','Blob','Blossom','Call','Cup','Thicket',
+var formsDruid = ['Arch','Mushroom','Aura','Dune','Bloom','Burr','Blossom','Call','Cup','Thicket',
   'Undergrowth','Door','Reed','Eyes','Face','Fang','Feast','Coat','Fissure','Cloak','Valley',
-  'Gaze','Predator','Globe','Serpent','Guard','Guide','Guise','Halo','Hand','Heart',
-  'Helm','Horn','Lock','Mantle','Mark','Memory','Mind','Mouth','Noose','Oath','Oracle',
-  'Pattern','Vine','Pillar','Pocket','Brush','Pyramid','Rhythm','Rune','Tail','Seal',
-  'Monolith','Stalagmite','Field','Clearing','Sigil','Sign','Song','Spear','Spell','Sphere',
-  'Spray','Staff','Storm','Sediment','Pool','Tendril','Tongue','Tooth','Trap','Veil',
-  'Voice','Wall','Soil','Wave','Trail','Weave','Whisper','Wings','Word','Feather',
-  'Skin','Tremor','Chute','Man','Altar','Sheath','Sleeve','Rib','Stinger','Jaws',
-  'Tentacle','Maw','Brow','Chasm','Sinkhole','Antennae','Sac','Beak'
+  'Gaze','Predator','Stream','Serpent','Fruit','Guide','Gate','Halo','Hand','Heart',
+  'Head','Horn','Bundle','Mantle','Mark','Nest','Milk','Mouth','Web','Oath','Oracle',
+  'Pattern','Vine','Pet','Hole','Leaf','Branch','Tree','Rune','Tail','Seal',
+  'Monolith','Stalagmite','Field','Clearing','Sigil','Sign','Song','Spear','Spring','Sky',
+  'Stag','Staff','Storm','Cave','Pool','Globe','Tongue','Tooth','Trap','Veil',
+  'Voice','Precipice','Soil','Wave','Trail','Weave','Whisper','Wings','Word','Feather',
+  'Skin','Tremor','Change','Seed','Altar','Sheath','Shield','Knife','Stinger','Jaws',
+  'Tentacle','Maw','Mind','Chasm','Sinkhole','Symbiosis','Memory','Servant' // Dune
 ];
 
-var elementsDruid = ['Amber','Aether','Air','Ash','Symbiosis','Balance','Blight',
-  'Blood','Bone','Bones','Clay','Cloud','Copper','Cosmos','Dark','Depth',
-  'Dune','Dust','Earth','Ember','Energy','Garden','Cycle','Fire','Fog','Aura',
-  'Forest','Glow','Gold','Health','Heat','Alpine','Dawn','Ice','Iron',
+var elementsDruid = ['Acid','Aether','Air','Ash','Monsoon','Balance','Blight',
+  'Blood','Bone','Hunger','Clay','Cloud','Copper','Cosmos','Dark','Depth',
+  'Doom','Dust','Earth','Ember','Energy','Garden','Cycle','Fire','Fog','Aura',
+  'Forest','Glow','Gold','Health','Heat','Mountain','Dawn','Ice','Iron',
   'Renewal','Harmony','Twilight','Dusk','Life','Light','Lightning','Growth',
-  'Love','Lure','Metal','Midnight','Mist','Moon','Mud','Nature','Oil',
-  'Peat','Perception','Desert','Plant','Poison','Quicksilver','Rain',
-  'Rot','Salt','Shadow','Sight','Silver','Smoke','Soil','Soul','Souls',
-  'Sound','Spirit','Stars','Steam','Steel','Stone','Storm','Sun','',
-  'Tundra','Treasure','Truth','Vanity','Venom','Vigor','Void','Water','Wisp',
+  'Love','Lure','Metal','Midnight','Mist','Moon','Mud','Thorn','Oil',
+  'Grass','Decay','Desert','Plant','Poison','Quicksilver','Rain',
+  'Rot','Salt','Shadow','Sight','Silver','Smoke','Crystal','Soul','Souls',
+  'Sound','Spirit','Star','Steam','Steel','Stone','Storm','Sun','Tar',
+  'Tundra','Aurora','Truth','Vanity','Venom','Vigor','Void','Water','Wisp',
   'Wind','Wisdom','Wood','Snow','Bark','Fur','Magma','Obsidian','Diamond',
   'Sand','Moss','Canopy','Murk','Mire'];
 
 var adjectivesDruid = ['Spreading','Green','Lush','Binding','Black',
-'Blazing','Blinding','Ensnaring','Bright','Cacophonous','Cerulean','Concealing',
-'Confusing','Consuming','Crimson','Decaying','Dark','Detecting','Delicate',
-'Feral','Devastating','Devilish','Diminishing','Draining','Moist',
-'Empowering','Enlightening','Encircling','Entangling','Enveloping',
-'Erratic','Expanding','Fearsome','Throbbing','Infesting','Gnawing',
-'Flaming','Floating','Freezing','Glittering','Gyrating','Helpful',
-'Hindering','Icy','Illusory','Incredible','Inescapable','Downy',
-'Invisible','Invulnerable','Liberating','Panoramic','Scintillating',
-'Magnificent','Many-Colored','Mighty','Most Excellent',
-'Omnipotent','Oozing','Penultimate','Pestilential','Piercing','Poisonous',
-'Refracting','Raging','Rejuvenating','Restorative','Screaming','Sensitive',
-'Shimmering','Shining','Silent','Sleeping','Slow','Smoking',
-'Strange','Terrible','Thirsty','Thundering','Flowing','Feathered',
-'Transmuting','Ultimate','Uncontrollable','Unseen','Unstoppable','Untiring',
-'Vengeful','Violent','Violet','Viridian','Voracious','Weakening',
-'White','Wondrous','Yellow','Undulating','Roaring','Tumbling','Pleasant'];
+  'Blazing','Blinding','Ensnaring','Bright','Cacophonous','Cerulean','Concealing',
+  'Confusing','Consuming','Crimson','Decaying','Dark','Detecting','Delicate',
+  'Feral','Devastating','Devilish','Diminishing','Draining','Moist',
+  'Empowering','Enlightening','Encircling','Entangling','Enveloping',
+  'Erratic','Expanding','Fearsome','Throbbing','Infesting','Gnawing',
+  'Flaming','Floating','Freezing','Glittering','Gyrating','Helpful',
+  'Hindering','Icy','Illusory','Incredible','Inescapable','Downy',
+  'Microcosmic','Immense','Liberating','Panoramic','Scintillating',
+  'Magnificent','Many-Colored','Mighty','Most Excellent',
+  'Surging','Oozing','Penultimate','Pestilential','Piercing','Poisonous',
+  'Refracting','Raging','Rejuvenating','Restorative','Screaming','Sensitive',
+  'Shimmering','Shining','Silent','Sleeping','Slow','Smoking',
+  'Strange','Terrible','Thirsty','Thundering','Flowing','Feathered',
+  'Metamorphosis','Highest','Wild','Unseen','Glacial','Untiring',
+  'Vengeful','Violent','Violet','Viridian','Voracious','Weakening',
+  'White','Beautiful','Yellow','Undulating','Roaring','Devouring','Boiling'];
 
 var patternsDruid = {
   '1': function() {
@@ -76,7 +76,10 @@ var patternsDruid = {
     return pick(elementsDruid) + ' ' + pick(elementsDruid) + ' ' + pick(adjectivesDruid);
   },
   '7': function() {
-    return pick(formsDruid) + ' of ' + pick(adjectivesDruid) + ' ' + pick(adjectivesDruid);
+    return pick(formsDruid) + ' of ' + pick(adjectivesDruid);
+  },
+  '8': function() {
+    return pick(adjectivesDruid) +' '+ pick(formsDruid) + ' of ' + pick(adjectivesDruid);
   }
 };
 
@@ -97,3 +100,18 @@ console.log();
 for (i=0;i<100;i++) {
   console.log(spellDruid());
 }
+var dump = function (list) {
+  console.log('- - - ');
+  list.sort();
+  for (i=0;i<50;i++) {
+    console.log(list[i]);
+  }
+  console.log();
+  for (i=50;i<100;i++) {
+    console.log(list[i]);
+  }
+}
+//
+// dump(formsDruid);
+// dump(adjectivesDruid);
+// dump(elementsDruid);
