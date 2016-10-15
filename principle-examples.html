@@ -110,11 +110,11 @@ margin-right: 60px;}
       generatePrinciples();
 
       var lists = "";
-      lists += "<h3>Verbs</h3>" + dump(verbsPrinciples);
-      lists += "<h3>Ideals</h3>" + dump(idealsPrinciples);
-      lists += "<h3>Adjectives</h3>" + dump(adjectivesPrinciples);
-      lists += "<h3>Groups</h3>" + dump(groupsPrinciples);
-      lists += "<h3>Things</h3>" + dump(thingsPrinciples);
+      lists += "<section class='pure-u-1-3'><h3>Verbs</h3>" + dump(verbsPrinciples) + "</section>";
+      lists += "<section class='pure-u-1-3'><h3>Ideals</h3>" + dump(idealsPrinciples) + "</section>";
+      lists += "<section class='pure-u-1-3'><h3>Adjectives</h3>" + dump(adjectivesPrinciples) + "</section>";
+      lists += "<section class='pure-u-1-3'><h3>Groups</h3>" + dump(groupsPrinciples) + "</section>";
+      lists += "<section class='pure-u-1-3'><h3>Things</h3>" + dump(thingsPrinciples) + "</section>";
       document.getElementById('lists').innerHTML = lists;
     </script>
   </body>
