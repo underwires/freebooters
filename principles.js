@@ -348,7 +348,7 @@ function verbIdeal(){ // gold
 var patternsPrinciples = {
   'VERB IDEAL': verbIdeal,
   'VERB IDEAL2': verbIdeal,
-  // 'VERB IDEAL3': verbIdeal,
+  'VERB IDEAL3': verbIdeal,
   'VERB GROUP': function (){ // gold, but half the frequency
     var verbIndex = Math.floor(Math.random()*50);
     var verb1 = verbsAgainstGroups[verbIndex];
