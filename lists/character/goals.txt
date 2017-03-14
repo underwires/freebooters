@@ -1,0 +1,35 @@
+a better life
+acceptance
+acquire (item)
+craft (item)
+destroy (faction)
+destroy (item)
+locate (person)
+love
+mastery
+power
+reach location
+rescue (person)
+enlightenment
+fame
+found a faction
+freedom
+glory
+impress (person)
+resolve dispute
+restore (faction)
+reveal a secret
+revenge
+sabotage (faction)
+serve a deity
+infamy
+infiltrate (faction)
+justice
+kidnap (person)
+lead (faction)
+learning
+serve (faction)
+serve ideology
+serve leader
+serve the needy
+wealth

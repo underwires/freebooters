@@ -342,18 +342,19 @@ function verbIdeal(){ // gold
   var verb2 = pick(verbsForIdeals);
   var ideal1 = pick(idealsPrinciples);
   var ideal2 = pick(idealsPrinciples);
-  return verb1+' '+ideal1 + " / " + verb2+' '+ideal1 + " / " + verb1+' '+ideal2 + " / " + verb2+' '+ideal2 + "\n\n";
+  return verb1+' '+ideal1 + " OR " + verb2+' '+ideal1 + " OR " + verb1+' '+ideal2 + " OR " + verb2+' '+ideal2 + "\n\n";
 }
 
 var patternsPrinciples = {
-  // 'VERB IDEAL': verbIdeal,
-  // 'VERB IDEAL': verbIdeal,
+  'VERB IDEAL': verbIdeal,
+  'VERB IDEAL2': verbIdeal,
+  // 'VERB IDEAL3': verbIdeal,
   'VERB GROUP': function (){ // gold, but half the frequency
     var verbIndex = Math.floor(Math.random()*50);
     var verb1 = verbsAgainstGroups[verbIndex];
     var verb2 = verbsForGroups[verbIndex];
     var group = pick(groupsPrinciples);
-    return verb1+' '+group + " / " + verb2+' '+group + "\n\n";
+    return verb1+' '+group + " OR " + verb2+' '+group + "\n\n";
   },
 
 

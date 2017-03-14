@@ -23,65 +23,9 @@ margin-right: 60px;}
           <button id="btn-paladin" class="btn btn-danger">Generate Paladin Principles</button>
         </header>
         <section class="pure-u-1-3">
-          <h4>be ADJECTIVE to VERB</h4>
-          <p id="be-adjective-to-verb">
-          </p>
-        </section>
-        <section class="pure-u-1-3">
-
-          <h4>VERB GROUP</h4>
-          <p id="verb-group">
-          </p>
-
-
-        </section>
-        <section class="pure-u-1-3">
-          <h4>VERB THING</h4>
-          <p id="verb-thing">
-          </p>
-
-
-        </section>
-        <section class="pure-u-1-3">
-          <h4>VERB ADJECTIVE GROUP</h4>
-          <p id="verb-adjective-group">
-          </p>
-
-
-        </section>
-        <section class="pure-u-1-3">
-          <h4>VERB GROUPS to VERBS</h4>
-          <p id="verb-groups-to-verbs">
-          </p>
-
-
-        </section>
-        <section class="pure-u-1-3">
-          <h4>be ADJECTIVE for GROUP</h4>
-          <p id="be-adjective-for-group">
-          </p>
-
-
-        </section>
-        <section class="pure-u-1-3">
-          <h4>VERB IDEAL for GROUP</h4>
-          <p id="verb-ideal-for-group">
-          </p>
-
-
-        </section>
-        <section class="pure-u-1-3">
-          <h4>IDEAL is IDEAL</h4>
-          <p id="ideal-is-ideal">
-          </p>
-
-
-        </section>
-        <section class="pure-u-1-3">
-          <h4>VERB IDEAL</h4>
-          <p id="verb-ideal">
-          </p>
-
+          <h4>Principles</h4>
+          <ol id="principle-list">
+          </ol>
         </section>
 
       </div>
@@ -93,29 +37,54 @@ margin-right: 60px;}
 
     <script type="text/javascript" src="principles.js"></script>
     <script type="text/javascript">
-      function generatePrinciples (e){
+      var principleList = document.getElementById('principle-list');
+      var count = 0;
+      function generatePrinciple (e){
         if (e) e.preventDefault();
-        document.getElementById('be-adjective-to-verb').innerHTML = [0,1,2,3,4].map(function(){ return patternsPrinciples['be ADJECTIVE to VERB'](); }).join('<br>');
-        document.getElementById('verb-group').innerHTML = [0,1,2,3,4].map(function(){ return patternsPrinciples['VERB GROUP'](); }).join('<br>');
-        document.getElementById('verb-thing').innerHTML = [0,1,2,3,4].map(function(){ return patternsPrinciples['VERB THING'](); }).join('<br>');
-        document.getElementById('verb-adjective-group').innerHTML = [0,1,2,3,4].map(function(){ return patternsPrinciples['VERB ADJECTIVE GROUP'](); }).join('<br>');
-        document.getElementById('verb-groups-to-verbs').innerHTML = [0,1,2,3,4].map(function(){ return patternsPrinciples['VERB GROUPS to VERBS'](); }).join('<br>');
-        document.getElementById('be-adjective-for-group').innerHTML = [0,1,2,3,4].map(function(){ return patternsPrinciples['be ADJECTIVE for GROUP'](); }).join('<br>');
-        document.getElementById('verb-ideal-for-group').innerHTML = [0,1,2,3,4].map(function(){ return patternsPrinciples['VERB IDEAL for GROUP'](); }).join('<br>');
-        document.getElementById('ideal-is-ideal').innerHTML = [0,1,2,3,4].map(function(){ return patternsPrinciples['IDEAL is IDEAL'](); }).join('<br>');
-        document.getElementById('verb-ideal').innerHTML = [0,1,2,3,4].map(function(){ return patternsPrinciples['VERB IDEAL'](); }).join('<br>');
+        // var item = document.createElement("li", {id: "li"+count});
+        // var options = principle().split(" OR ").map(function(o){
+        //   var text = document.createTextNode(o);
+        //   var a = document.createElement("a", {href: "#", dataLi: "li"+count});
+        //   a.appendChild(text);
+        //   a.addEventListener('click', function(e){
+        //     document.getElementById();
+        //     e.preventDefault();
+        //
+        //   });
+        //   count++;
+        //   return a;
+        // });
+        // options.forEach(function(o){
+        //   item.appendChild(o);
+        // });
+
+        var options = '<li><a class="" href="#">' + principle().split(" OR ").join('</a> OR <a class="" href="#">') + '</a></li>';
+        var existing = principleList.innerHTML;
+        principleList.innerHTML = options + existing;
+        // principleList.appendChild(item);
+        principleList.childNodes.forEach(function(li){
+          li.addEventListener('click', function(e){
+            e.preventDefault();
+            var name = e.srcElement.innerHTML;
+            this.innerHTML = name;
+          });
+        });
+
+        // node.parentNode.childNodes
+
       }
 
-      document.getElementById('btn-paladin').addEventListener('click', generatePrinciples);
-      generatePrinciples();
+      document.getElementById('btn-paladin').addEventListener('click', generatePrinciple);
+      generatePrinciple();
+      generatePrinciple();
 
-      var lists = "";
-      lists += "<section class='pure-u-1-3'><h3>Verbs</h3>" + dump(verbsPrinciples) + "</section>";
-      lists += "<section class='pure-u-1-3'><h3>Ideals</h3>" + dump(idealsPrinciples) + "</section>";
-      lists += "<section class='pure-u-1-3'><h3>Adjectives</h3>" + dump(adjectivesPrinciples) + "</section>";
-      lists += "<section class='pure-u-1-3'><h3>Groups</h3>" + dump(groupsPrinciples) + "</section>";
-      lists += "<section class='pure-u-1-3'><h3>Things</h3>" + dump(thingsPrinciples) + "</section>";
-      document.getElementById('lists').innerHTML = lists;
+      // var lists = "";
+      // lists += "<section class='pure-u-1-3'><h3>Verbs</h3>" + dump(verbsPrinciples) + "</section>";
+      // lists += "<section class='pure-u-1-3'><h3>Ideals</h3>" + dump(idealsPrinciples) + "</section>";
+      // lists += "<section class='pure-u-1-3'><h3>Adjectives</h3>" + dump(adjectivesPrinciples) + "</section>";
+      // lists += "<section class='pure-u-1-3'><h3>Groups</h3>" + dump(groupsPrinciples) + "</section>";
+      // lists += "<section class='pure-u-1-3'><h3>Things</h3>" + dump(thingsPrinciples) + "</section>";
+      // document.getElementById('lists').innerHTML = lists;
     </script>
   </body>
 </html>
