@@ -60,7 +60,7 @@ margin-right: 60px;}
 
         var options = '<li><a class="" href="#">' + principle().split(" OR ").join('</a> OR <a class="" href="#">') + '</a></li>';
         var existing = principleList.innerHTML;
-        principleList.innerHTML = options + existing;
+        principleList.innerHTML = existing + options;
         // principleList.appendChild(item);
         principleList.childNodes.forEach(function(li){
           li.addEventListener('click', function(e){
