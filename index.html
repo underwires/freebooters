@@ -10,7 +10,14 @@
     <meta name="viewport" content="width=device-width">
     <style media="screen">
       body {text-align: center;}
-      #output {min-height: 500px;}
+      #output {min-height: 190px;}
+      .pure-g {
+          text-rendering: optimizespeed;
+      }
+      .pure-u-1-4 {
+        float: left;
+        width: 25%;
+      }
     </style>
   </head>
   <body>
@@ -29,9 +36,13 @@
           </div>
         </section>
       </div>
-      <small><a href="https://github.com/underwires/freebooters">View the Project on GitHub <small>underwires/freebooters</small></a></small>
+    </div>
+    <h2>Druid Spell Tables</h2>
+
+    <div id="druid-lists" class="pure-g">
 
     </div>
+    <small><a href="https://github.com/underwires/freebooters">View the Project on GitHub <small>underwires/freebooters</small></a></small>
     <script type="text/javascript" src="spells-druid.js"></script>
     <script type="text/javascript" src="spells-mage.js"></script>
     <script type="text/javascript">
@@ -44,6 +55,31 @@
         e.preventDefault();
         outputBox.innerHTML = spellDruid()+"<br>"+spellDruid()+"<br>"+spellDruid()+"<br>"+spellDruid()+"<br>"+spellDruid();
       });
+      var druidBox = document.getElementById('druid-lists');
+      var druid = '<div class="pure-u-1-4">';
+        druid += "<h3>Patterns</h3>";
+        druid += "<ol>";
+        druid += "<li>ELEMENT FORM</li>";
+        druid += "<li>ADJECTIVE FORM</li>";
+        druid += "<li>ADJECTIVE ELEMENT</li>";
+        druid += "<li>FORM of ELEMENT</li>";
+        druid += "<li>FORM of the ADJECTIVE FORM</li>";
+        druid += "<li>FORM of ADJECTIVE ELEMENT</li>";
+        druid += "</ol>";
+      druid += "</div>";
+      druid += '<div class="pure-u-1-4">';
+        druid += "<h3>Forms</h3>";
+        druid += "<ol><li>"+formsDruid.join("</li><li>")+"</li></ol>";
+      druid += "</div>";
+      druid += '<div class="pure-u-1-4">';
+        druid += "<h3>Elements</h3>";
+        druid += "<ol><li>"+elementsDruid.join("</li><li>")+"</li></ol>";
+      druid += "</div>";
+      druid += '<div class="pure-u-1-4">';
+        druid += "<h3>Adjectives</h3>";
+        druid += "<ol><li>"+adjectivesDruid.join("</li><li>")+"</li></ol>";
+      druid += "</div>";
+      druidBox.innerHTML = druid;
     </script>
   </body>
 </html>
